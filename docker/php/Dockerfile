@@ -32,5 +32,5 @@ RUN apk $CACHE update && apk $CACHE add \
     bzip2-dev \
     zlib-dev 
 
-RUN docker-php-ext-install pdo pdo_pgsql bcmath gd zip
+RUN docker-php-ext-install bcmath gd zip
 
