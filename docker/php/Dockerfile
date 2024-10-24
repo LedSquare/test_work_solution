@@ -6,7 +6,7 @@ ENV CACHE=--no-cache
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-WORKDIR /journey
+WORKDIR /app
 
 RUN apk $CACHE update && apk $CACHE add \
     postgresql-dev \

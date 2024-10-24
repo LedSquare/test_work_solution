@@ -4,6 +4,6 @@ COPY ./docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
 
 RUN apk --no-cache add bash
 
-WORKDIR /site
+WORKDIR /app
 
 
