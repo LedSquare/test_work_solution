@@ -5,14 +5,14 @@ services:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
-    depends_on:
-      - db
+    # depends_on:
+      # - db
     volumes:
-      - ./${PROJECT}:/site
+      - ./${PROJECT}:/${PROJECT}
     networks:
       - appnet
 
-  server:
+  server: 
     container_name: ${PROJECT}_nginx
     image: ${PROJECT}_nginx:${TAG}
     build:
@@ -21,9 +21,9 @@ services:
     ports:
       - 80:80
     depends_on:
-      - php
+      - app
     volumes:
-      - './${PROJECT}:/site'
+      - './${PROJECT}:/${PROJECT}'
     networks:
       - appnet
 

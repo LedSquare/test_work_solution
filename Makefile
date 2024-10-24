@@ -72,9 +72,6 @@ composer-update:
 	${DOCKER_EXEC_APP} composer update
 composer-install:
 	${DOCKER_EXEC_APP} composer install
-key-storage:
-	${DOCKER_EXEC_APP} php artisan key:generate
-	${DOCKER_EXEC_APP} chmod -R 777 storage
 chmod:
 	docker exec -it php chmod -R 777 
 exec-app:
