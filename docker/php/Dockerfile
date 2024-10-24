@@ -30,7 +30,10 @@ RUN apk $CACHE update && apk $CACHE add \
     gdbm-dev \
     ncurses-dev \
     bzip2-dev \
-    zlib-dev 
+    zlib-dev && \
+    # Install symfony cli
+    wget https://get.symfony.com/cli/installer -O - | bash && \
+    # Docker 
+    docker-php-ext-install bcmath gd zip
 
-RUN docker-php-ext-install bcmath gd zip
-
+RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
