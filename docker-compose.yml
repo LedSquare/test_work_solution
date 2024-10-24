@@ -1,0 +1,37 @@
+services:
+  app:
+    container_name: ${PROJECT}_php
+    image: ${PROJECT}_php:${TAG}
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./${PROJECT}:/site
+    networks:
+      - appnet
+
+  server:
+    container_name: ${PROJECT}_nginx
+    image: ${PROJECT}_nginx:${TAG}
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - php
+    volumes:
+      - './${PROJECT}:/site'
+    networks:
+      - appnet
+
+#------------
+
+networks:
+  appnet:
+    name: ${PROJECT}_net
+    driver: bridge
+    external: true
+      
