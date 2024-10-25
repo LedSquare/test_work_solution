@@ -1,5 +1,6 @@
-controllers:
+journey_controllers:
     resource:
-        path: ../src/Controller/
-        namespace: App\Controller
+        path: ../src/API/Journey/Controller
+        namespace: App\API\Journey\Controller
     type: attribute
+    prefix: /journey
