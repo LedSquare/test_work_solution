@@ -1,8 +1,9 @@
 <?php
 
-namespace App\modules\Journey\Domain\Discount\Rules;
+namespace Journey\Domain\Discount\Rules;
 
-use App\modules\Journey\Domain\Enums\Discount\Rules\DiscountChieldEnum;
+use Journey\Domain\Discount\Rules\DiscountRuleInterface;
+use Journey\Domain\Enums\Discount\Rules\DiscountChieldEnum;
 
 final class DiscountChieldRule implements DiscountRuleInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\modules\Journey\Domain\DTOResponse;
+namespace Journey\Domain\DTOResponse;
 
 interface CostCalculationResponseDTOInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\modules\Journey\Domain\Discount\DateIntervals;
+namespace Journey\Domain\Discount\DateIntervals;
 
 use DateTime;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\modules\Journey\Domain\DTORequest;
+namespace Journey\Domain\DTORequest;
 
 use DateTime;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\modules\Journey\Application\DTORequest;
+namespace Journey\Application\DTORequest;
 
-use App\modules\Journey\Domain\DTOResponse\CostCalculationResponseDTOInterface;
+use Journey\Domain\DTOResponse\CostCalculationResponseDTOInterface;
 
 readonly class CostCalculationResponseDTO implements CostCalculationResponseDTOInterface
 {

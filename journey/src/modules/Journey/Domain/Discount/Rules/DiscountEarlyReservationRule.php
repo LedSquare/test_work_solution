@@ -1,10 +1,11 @@
 <?php
 
-namespace App\modules\Journey\Domain\Discount\Rules;
+namespace Journey\Domain\Discount\Rules;
 
 use App\modules\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval;
 
 use DateTime;
+use Journey\Domain\Discount\Rules\DiscountRuleInterface;
 
 final class DiscountEarlyReservationRule implements DiscountRuleInterface
 {
@@ -26,12 +27,12 @@ final class DiscountEarlyReservationRule implements DiscountRuleInterface
         foreach ($this->startDateIntervals as $startDateInterval) {
             if (
                 $this->startTravelDate >= $startDateInterval->start ||
-                $this->startTravelDate <= $startDateInterval->end
+                $this->startTravelDate < $startDateInterval->end
             ) {
                 foreach ($startDateInterval->paymentDateIntervals as $paymentInterval) {
                     if (
                         $this->paymentDate >= $paymentInterval->start ||
-                        $this->paymentDate <= $paymentInterval->end
+                        $this->paymentDate < $paymentInterval->end
                     ) {
                         $procent = $paymentInterval->discountProcent;
                         $discount = ($discount * $procent) / 100;
