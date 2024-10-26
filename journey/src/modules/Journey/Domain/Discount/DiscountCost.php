@@ -1,9 +1,8 @@
 <?php
 
-namespace Journey\Domain\Discount;
+namespace App\modules\Journey\Domain\Discount;
 
-use Journey\Domain\Discount\DiscountCostInterface;
-use Journey\Domain\Discount\Rules\DiscountRuleInterface;
+use App\modules\Journey\Domain\Discount\Rules\DiscountRuleInterface;
 
 final class DiscountCost implements DiscountCostInterface
 {

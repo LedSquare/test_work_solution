@@ -1,6 +1,6 @@
 <?php
 
-namespace Journey\Domain\Discount\Rules;
+namespace App\modules\Journey\Domain\Discount\Rules;
 
 
 interface DiscountRuleInterface

@@ -1,10 +1,9 @@
 <?php
 
-namespace Journey\Application\DTORequest;
+namespace App\modules\Journey\Application\DTORequest;
 
+use App\modules\Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
 use DateTime;
-
-use Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
 
 readonly class CostCalculationRequestDTO implements CostCalculationRequestDTOInterface
 {

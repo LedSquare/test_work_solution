@@ -1,6 +1,6 @@
 <?php
 
-namespace Journey\Application\Service;
+namespace App\modules\Journey\Application\Service;
 
 interface DiscountCostCalculationServiceInterface
 {

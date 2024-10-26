@@ -1,15 +1,15 @@
 <?php
 
-namespace Journey\Domain\Service\Discount;
+namespace App\modules\Journey\Domain\Service\Discount;
 
-use Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
+use App\modules\Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
 
 interface DiscountCalculateServiceInterface
 {
     /**
      * 
-     * @param \Journey\Domain\DTORequest\CostCalculationRequestDTOInterface $requestDTO
-     * @param array<\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval> $startTravelDateIntervals
+     * @param \App\modules\Journey\Domain\DTORequest\CostCalculationRequestDTOInterface $requestDTO
+     * @param array<\App\modules\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval> $startTravelDateIntervals
      * @return int
      */
     public function calculate(CostCalculationRequestDTOInterface $requestDTO, array $startTravelDateIntervals = null): int;

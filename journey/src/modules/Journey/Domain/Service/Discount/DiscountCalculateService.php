@@ -1,13 +1,14 @@
 <?php
 
-namespace Journey\Domain\Service\Discount;
+namespace App\modules\Journey\Domain\Service\Discount;
+
+use App\modules\Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
+use App\modules\Journey\Domain\Discount\DiscountCost;
+use App\modules\Journey\Domain\Discount\Rules\DiscountChieldRule;
+use App\modules\Journey\Domain\Discount\Rules\DiscountEarlyReservationRule;
+use App\modules\Journey\Domain\Service\Discount\DiscountCalculateServiceInterface;
 
 use DateTime;
-use Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
-use Journey\Domain\Discount\DiscountCost;
-use Journey\Domain\Discount\Rules\DiscountChieldRule;
-use Journey\Domain\Discount\Rules\DiscountEarlyReservationRule;
-use Journey\Domain\Service\Discount\DiscountCalculateServiceInterface;
 
 final readonly class DiscountCalculateService implements DiscountCalculateServiceInterface
 {

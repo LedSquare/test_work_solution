@@ -1,6 +1,6 @@
 <?php
 
-namespace Journey\Domain\Enums\Discount\Rules;
+namespace App\modules\Journey\Domain\Enums\Discount\Rules;
 
 enum DiscountChieldEnum: int
 {
