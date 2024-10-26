@@ -1,0 +1,6 @@
+journey_controllers:
+  resource:
+    path: "../API/Controller"
+    namespace: App\modules\Journey\UI\Symfony\API\Controller
+  type: attribute
+  prefix: /journey

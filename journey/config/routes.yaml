@@ -1,6 +1,2 @@
-journey_controllers:
-    resource:
-        path: ../src/API/Journey/Controller
-        namespace: App\API\Journey\Controller
-    type: attribute
-    prefix: /journey
+journey_file:
+    resource: "../src/modules/Journey/Infrastructure/Symfony/config/journey_routes.yaml"
