@@ -1,0 +1,7 @@
+parameters:
+
+services:
+    App\modules\Journey\Application\Service\DiscountCalculateServiceInterface:
+        class: App\modules\Journey\Application\Service\DiscountCostCalculationService
+        autowire: true
+        autoconfigure: true
