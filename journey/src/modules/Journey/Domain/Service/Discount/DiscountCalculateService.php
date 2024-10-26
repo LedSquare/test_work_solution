@@ -21,14 +21,14 @@ final readonly class DiscountCalculateService implements DiscountCalculateServic
         $age = $this->calculateAge(birthDate: $requestDTO->birthDate);
         if ($age < 18) {
             $discountChieldRule = new DiscountChieldRule(
-                discountCost: $discount->getFinalCost(),
+                baseCost: $discount->getFinalDiscountCost(),
                 age: $age
             );
             $discount->recalculate(discountRule: $discountChieldRule);
         }
 
         $discountEarlyReservationRule = new DiscountEarlyReservationRule(
-            discountCost: $discount->getFinalCost(),
+            baseCost: $discount->getFinalDiscountCost(),
             startTravelDate: $requestDTO->startTravelDate,
             paymentDate: $requestDTO->paymentDate,
             startDateIntervals: $startTravelDateIntervals,
@@ -36,7 +36,7 @@ final readonly class DiscountCalculateService implements DiscountCalculateServic
 
         $discount->recalculate(discountRule: $discountEarlyReservationRule);
 
-        return $discount->getFinalCost();
+        return $discount->getFinalDiscountCost();
     }
 
     private function calculateAge(DateTime $birthDate): int
