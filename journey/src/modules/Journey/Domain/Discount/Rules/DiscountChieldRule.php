@@ -9,7 +9,7 @@ final class DiscountChieldRule implements DiscountRuleInterface
     const MAX_DISCOUNT_COST_IF_SIX_YEAR = 4500;
 
     public function __construct(
-        private int $discountCost,
+        private int $baseCost,
         private int $age,
     ) {
     }
@@ -17,14 +17,14 @@ final class DiscountChieldRule implements DiscountRuleInterface
     {
         $procent = DiscountChieldEnum::getProcent($this->age);
 
-        $finalCost = ($this->discountCost * $procent) / 100;
+        $discount = ($this->baseCost * $procent) / 100;
 
         if ($this->age >= 6 && $this->age < 12) {
-            if ($finalCost >= self::MAX_DISCOUNT_COST_IF_SIX_YEAR) {
-                $finalCost = self::MAX_DISCOUNT_COST_IF_SIX_YEAR;
+            if ($discount >= self::MAX_DISCOUNT_COST_IF_SIX_YEAR) {
+                $discount = self::MAX_DISCOUNT_COST_IF_SIX_YEAR;
             }
         }
 
-        return (int) $finalCost;
+        return (int) $discount;
     }
 }

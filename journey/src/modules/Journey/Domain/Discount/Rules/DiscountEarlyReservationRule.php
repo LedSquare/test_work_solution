@@ -10,7 +10,7 @@ final class DiscountEarlyReservationRule implements DiscountRuleInterface
 {
 
     public function __construct(
-        private int $discountCost,
+        private int $baseCost,
         private DateTime $startTravelDate,
         private DateTime $paymentDate,
         /**
@@ -21,7 +21,7 @@ final class DiscountEarlyReservationRule implements DiscountRuleInterface
     }
     public function recalculate(): int
     {
-        $discount = $this->discountCost;
+        $discount = $this->baseCost;
 
         foreach ($this->startDateIntervals as $startDateInterval) {
             if (
@@ -35,11 +35,11 @@ final class DiscountEarlyReservationRule implements DiscountRuleInterface
                     ) {
                         $procent = $paymentInterval->discountProcent;
                         $discount = ($discount * $procent) / 100;
+                        return $discount;
                     }
                 }
             }
         }
-
         return $discount;
     }
 }

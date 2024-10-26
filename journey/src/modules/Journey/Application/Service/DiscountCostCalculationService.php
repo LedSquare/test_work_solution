@@ -1,15 +1,15 @@
 <?php
 
-namespace Journey\Application\Service;
+namespace App\modules\Journey\Application\Service;
 
+use App\modules\Journey\Application\DTOResponse\CostCalculationResponseDTO;
+use App\modules\Journey\Application\Service\DiscountCostCalculationServiceInterface;
+use App\modules\Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
+use App\modules\Journey\Domain\DTOResponse\CostCalculationResponseDTOInterface;
+use App\modules\Journey\Domain\Discount\DateIntervals\PaymentDateInterval;
+use App\modules\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval;
+use App\modules\Journey\Domain\Service\Discount\DiscountCalculateServiceInterface;
 use DateTime;
-use Journey\Application\DTORequest\CostCalculationResponseDTO;
-use Journey\Application\Service\DiscountCostCalculationServiceInterface;
-use Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
-use Journey\Domain\DTOResponse\CostCalculationResponseDTOInterface;
-use Journey\Domain\Discount\DateIntervals\PaymentDateInterval;
-use Journey\Domain\Discount\DateIntervals\StartTravelDateInterval;
-use Journey\Domain\Service\Discount\DiscountCalculateServiceInterface;
 
 final class DiscountCostCalculationService implements DiscountCostCalculationServiceInterface
 {
@@ -21,18 +21,18 @@ final class DiscountCostCalculationService implements DiscountCostCalculationSer
     public function calculate(CostCalculationRequestDTOInterface $requestDTO): CostCalculationResponseDTOInterface
     {
         $intervals = $this->setStartTravelAndPaymentDateIntervals();
-        $discount = $this->discountCalculateService->calculate(
+        $discountCost = $this->discountCalculateService->calculate(
             requestDTO: $requestDTO,
             startTravelDateIntervals: $intervals
         );
 
         return new CostCalculationResponseDTO(
-            discount: $discount
+            discountCost: $discountCost
         );
     }
 
     /**
-     * @var array<\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval>
+     * @var array<\App\modules\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval>
      */
     private function setStartTravelAndPaymentDateIntervals(): array
     {

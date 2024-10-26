@@ -6,25 +6,25 @@ use App\modules\Journey\Domain\Discount\Rules\DiscountRuleInterface;
 
 final class DiscountCost implements DiscountCostInterface
 {
-    private int $finalCost;
+    private int $finalDiscountCost;
 
     public function __construct(
-        private readonly int $cost,
+        public readonly int $cost,
     ) {
-        $this->finalCost = $cost;
+        $this->finalDiscountCost = $cost;
     }
 
     /**
      * Get the value of finalCost
      */
-    public function getFinalCost(): int
+    public function getFinalDiscountCost(): int
     {
-        return $this->finalCost;
+        return $this->finalDiscountCost;
     }
 
     public function recalculate(DiscountRuleInterface $discountRule): self
     {
-        $this->finalCost = $discountRule->recalculate();
+        $this->finalDiscountCost -= $discountRule->recalculate();
         return $this;
     }
 }
