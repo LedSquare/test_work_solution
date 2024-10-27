@@ -10,7 +10,7 @@ final readonly class StartTravelDateInterval
         public DateTime $start,
         public DateTime $end,
         /**
-         * @var array<PaymentDateInterval>
+         * @var array<\App\modules\Journey\Domain\Discount\DateIntervals\PaymentDateInterval>
          */
         public array $paymentDateIntervals,
     ) {
