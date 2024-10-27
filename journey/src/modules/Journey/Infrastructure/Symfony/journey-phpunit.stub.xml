@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuites>
+    <testsuite name="JourneyFeature">
+        <directory>src/modules/Journey/Infrastructure/Symfony/tests/feature</directory>
+    </testsuite>
+    <testsuite name="JourneyUnit">
+        <directory>src/modules/Journey/Infrastructure/Symfony/tests/unit</directory>
+    </testsuite>
+</testsuites>
+
+    
+
