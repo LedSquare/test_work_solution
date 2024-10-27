@@ -21,20 +21,19 @@ final class DiscountEarlyReservationRule implements DiscountRuleInterface
     }
     public function recalculate(): int
     {
-        $discount = $this->baseCost;
-
+        $discount = 0;
         foreach ($this->startDateIntervals as $startDateInterval) {
             if (
-                $this->startTravelDate >= $startDateInterval->start ||
+                $this->startTravelDate >= $startDateInterval->start &&
                 $this->startTravelDate <= $startDateInterval->end
             ) {
                 foreach ($startDateInterval->paymentDateIntervals as $paymentInterval) {
                     if (
-                        $this->paymentDate >= $paymentInterval->start ||
-                        $this->paymentDate <= $paymentInterval->end
+                        $this->paymentDate >= $paymentInterval->start &&
+                        $this->paymentDate < $paymentInterval->end
                     ) {
                         $procent = $paymentInterval->discountProcent;
-                        $discount = ($discount * $procent) / 100;
+                        $discount = ($this->baseCost * $procent) / 100;
                         return $discount;
                     }
                 }
