@@ -6,6 +6,7 @@ use App\modules\Journey\Domain\DTORequest\CostCalculationRequestDTOInterface;
 use App\modules\Journey\Domain\Discount\DiscountCost;
 use App\modules\Journey\Domain\Discount\Rules\DiscountChieldRule;
 use App\modules\Journey\Domain\Discount\Rules\DiscountEarlyReservationRule;
+use App\modules\Journey\Domain\Exceptions\Discount\DiscountDateException;
 use App\modules\Journey\Domain\Service\Discount\DiscountCalculateServiceInterface;
 
 use DateTime;
@@ -14,6 +15,10 @@ final readonly class DiscountCalculateService implements DiscountCalculateServic
 {
     public function calculate(CostCalculationRequestDTOInterface $requestDTO, array $startTravelDateIntervals = null): int
     {
+        if ($requestDTO->birthDate >= $requestDTO->startTravelDate) {
+            throw new DiscountDateException('Date of birth cannot be later than the start date of travel', 422);
+        }
+
         $discount = new DiscountCost(
             cost: $requestDTO->baseCost
         );
