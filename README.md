@@ -1,3 +1,7 @@
+```sh
+make start
+```
+
 # Задача
 
 Реализуйте API для неё на Symfony (без API Platform и БД).
