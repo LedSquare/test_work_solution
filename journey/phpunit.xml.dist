@@ -2,10 +2,11 @@
 
 <!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-         backupGlobals="false"
-         colors="true"
-         bootstrap="tests/bootstrap.php"
+        xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+        backupGlobals="false"
+        colors="true"
+        bootstrap="tests/bootstrap.php"
+        testdox="true"
 >
     <php>
         <ini name="display_errors" value="1" />
@@ -21,7 +22,7 @@
         <directory>src/modules/Journey/Infrastructure/Symfony/tests/feature</directory>
     </testsuite>
     <testsuite name="JourneyUnit">
-        <directory>src/modules/Journey/Infrastructure/Symfony/tests/unit</directory>
+        <directory>src/modules/Journey/Domain/Tests/Unit/</directory>
     </testsuite>
 </testsuites>
 
