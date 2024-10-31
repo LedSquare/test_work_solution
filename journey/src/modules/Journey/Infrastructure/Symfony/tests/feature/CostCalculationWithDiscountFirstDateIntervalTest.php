@@ -17,6 +17,7 @@ class CostCalculationWithDiscountFirstDateIntervalTest extends WebTestCase
     public function setUp(): void
     {
         $this->client = static::createClient();
+        $this->client->setServerParameter('CONTENT_TYPE', 'application/json');
     }
 
     /**

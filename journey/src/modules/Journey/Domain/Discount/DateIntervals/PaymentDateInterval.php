@@ -4,7 +4,7 @@ namespace App\modules\Journey\Domain\Discount\DateIntervals;
 
 use DateTime;
 
-final readonly class PaymentDateInterval
+readonly class PaymentDateInterval
 {
     public function __construct(
         public DateTime $start,
