@@ -2,19 +2,17 @@
 
 namespace App\modules\Journey\Domain\Discount\Rules;
 
-use App\modules\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval;
 
 use DateTime;
 
 final class DiscountEarlyReservationRule implements DiscountRuleInterface
 {
-
     public function __construct(
         private int $baseCost,
         private DateTime $startTravelDate,
         private DateTime $paymentDate,
         /**
-         * @var array<StartTravelDateInterval>
+         * @var array<\App\modules\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval>
          */
         private array $startDateIntervals,
     ) {
