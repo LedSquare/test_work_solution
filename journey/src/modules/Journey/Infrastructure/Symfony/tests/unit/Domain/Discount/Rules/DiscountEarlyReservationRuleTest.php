@@ -7,13 +7,12 @@ use App\modules\Journey\Domain\Discount\DateIntervals\StartTravelDateInterval;
 use App\modules\Journey\Domain\Discount\Rules\DiscountEarlyReservationRule;
 use DateTime;
 use PHPUnit\Framework\TestCase;
-use phpDocumentor\Reflection\Types\This;
 
 class DiscountEarlyReservationRuleTest extends TestCase
 {
     /**
      * @test
-     * dataProvider datesProvider
+     * @dataProvider datesProvider
      */
     public function test_recalculate_sucess(
         $baseCost,
@@ -40,11 +39,6 @@ class DiscountEarlyReservationRuleTest extends TestCase
             ]
         );
 
-        $ruleMock = $this->createMock(DiscountEarlyReservationRule::class);
-        $ruleMock->expects($this->once())
-            ->method('recalculate')
-            ->willReturn($expectedDiscount);
-
         $rule = new DiscountEarlyReservationRule(
             baseCost: $baseCost,
             startTravelDate: $startTravelDate,
@@ -60,23 +54,32 @@ class DiscountEarlyReservationRuleTest extends TestCase
     public static function datesProvider(): array
     {
         return [
-            '3_procent' => [
+            '5_procent' => [
                 20000,
                 new DateTime('01-04-2025'),
                 new DateTime('02-03-2025'),
-                5
+                1000
             ],
 
-            '5_procent' => [
-
+            '3_procent' => [
+                23000,
+                new DateTime('01-04-2025'),
+                new DateTime('05-04-2025'),
+                690
             ],
 
             'incorrect_start_travel_date' => [
-
+                30000,
+                new DateTime('01-01-2026'),
+                new DateTime('01-01-2026'),
+                0
             ],
 
             'incorrect_start_payment_date' => [
-
+                20000,
+                new DateTime('01-07-2025'),
+                new DateTime('02-06-2025'),
+                0
             ],
 
         ];

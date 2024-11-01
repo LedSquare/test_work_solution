@@ -94,3 +94,5 @@ tinker:
 
 migrate-fresh:
 	docker exec -it ${PROJECT}_php php artisan migrate:fresh --seed
+test:
+	docker compose exec app ./vendor/bin/phpunit
