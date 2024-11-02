@@ -1,6 +1,6 @@
 journey_controllers:
   resource:
-    path: ../API/Controller
-    namespace: App\modules\Journey\Infrastructure\Symfony\API\Controller
+    path: ../../../Presentation/Symfony/API/Controller
+    namespace: App\modules\Journey\Presentation\Symfony\API\Controller
   type: attribute
   prefix: /journey

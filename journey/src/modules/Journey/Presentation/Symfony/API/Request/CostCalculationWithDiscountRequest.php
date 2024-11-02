@@ -1,6 +1,6 @@
 <?php
 
-namespace App\modules\Journey\Infrastructure\Symfony\API\Request;
+namespace App\modules\Journey\Presentation\Symfony\API\Request;
 
 use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;

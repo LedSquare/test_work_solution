@@ -1,10 +1,10 @@
 <?php
 
-namespace App\modules\Journey\Infrastructure\Symfony\API\Controller;
+namespace App\modules\Journey\Presentation\Symfony\API\Controller;
 
 use App\modules\Journey\Application\DTORequest\CostCalculationRequestDTO;
 use App\modules\Journey\Application\Service\DiscountCostCalculationServiceInterface;
-use App\modules\Journey\Infrastructure\Symfony\API\Request\CostCalculationWithDiscountRequest;
+use App\modules\Journey\Presentation\Symfony\API\Request\CostCalculationWithDiscountRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
